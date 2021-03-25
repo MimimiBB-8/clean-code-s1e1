@@ -57,6 +57,14 @@ button {
 button:hover {
     color: #3a3A3a;
 }
+
+@media (max-width:768px) {
+
+    .wrapper { 
+        text-align: center;
+    }
+
+}
 /* Heading */
 h3,
 label[for='new-task'] {
