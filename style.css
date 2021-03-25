@@ -2,35 +2,36 @@
 body {
     background-color: #f8f8f8;
     color: #333;
-    font-family: Lato, sans-serif;
+    font-family: "Lato", sans-serif;
 }
+
 .wrapper {
     width: 500px;
     margin: 0 auto;
     display: block;
     text-align: right;
 }
-.wrapper img {
+
+.eisenhower-matrix {
     width: 100%;
 }
-.wrapper .more_inf {
+
+.more_inf {
     font-family: fantasy, cursive;
 }
 
-@media (max-width:768px) {
-.wrapper { text-align: center;
-}
-}
 .todo-list {
     display: block;
     width: 500px;
     margin: 0 auto 0;
 }
+
 .task {
     width: 56%;
     display: inline-block;
     flex-grow: 1
 }
+
 .task-row-wrapper {
     display: flex;
 }
@@ -121,15 +122,15 @@ li > label {
 li >    input[type="text"] {
     width: 226px
 }
-li > button.delete:hover {
+li > .delete:hover {
     color: #CF2323;
 }
-button.delete img {
+.delete img {
     height: 2em;
     transform: rotateZ(45deg);
     transition: transform 200ms ease-in;
 }
-button.delete img:hover {
+.delete img:hover {
     transform: rotateZ(0);
 }
 
