@@ -20,17 +20,17 @@ var createNewTaskElement=function(taskString){
     var listItem=document.createElement("li");
 
     //input (checkbox)
-    var checkBox=document.createElement("input");//checkbx
+    var checkBox=document.createElement("input");
     //label
-    var label=document.createElement("label");//label
+    var label=document.createElement("label");
     //input (text)
-    var editInput=document.createElement("input");//text
-    //button.edit
-    var editButton=document.createElement("button");//edit button
+    var editInput=document.createElement("input");
+    //edit button
+    var editButton=document.createElement("button");
 
-    //button.delete
-    var deleteButton=document.createElement("button");//delete button
-    var deleteButtonImg=document.createElement("img");//delete button image
+    //delete button
+    var deleteButton=document.createElement("button");
+    var deleteButtonImg=document.createElement("img");
 
     label.innerText=taskString;
     label.className='task';
@@ -184,8 +184,6 @@ for (var i=0; i<completedTasksHolder.children.length;i++){
     //bind events to list items chldren(tasksIncompleted)
     bindTaskEvents(completedTasksHolder.children[i],taskIncomplete);
 }
-
-
 
 
 // Issues with usability don't get seen until they are in front of a human tester.
