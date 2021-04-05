@@ -8,10 +8,10 @@
 
 // Event handling, user interaction is what starts the code execution.
 
-var taskInput=document.getElementById("todo__new_task");//Add a new task.
+var taskInput=document.getElementById("new-task");//Add a new task.
 var addButton=document.getElementsByTagName("button")[0];//first button
-var incompleteTaskHolder=document.getElementById("todo__incomplete_tasks");//ul of #incompleteTasks
-var completedTasksHolder=document.getElementById("todo__completed_tasks");//completed-tasks
+var incompleteTaskHolder=document.getElementById("incompleteTasks");//ul of #incompleteTasks
+var completedTasksHolder=document.getElementById("completed-tasks");//completed-tasks
 
 
 //New task list item
@@ -20,32 +20,33 @@ var createNewTaskElement=function(taskString){
     var listItem=document.createElement("li");
 
     //input (checkbox)
-    var checkBox=document.createElement("input");
+    var checkBox=document.createElement("input");//checkbx
     //label
-    var label=document.createElement("label");
+    var label=document.createElement("label");//label
     //input (text)
-    var editInput=document.createElement("input");
-    //edit button
-    var editButton=document.createElement("button");
+    var editInput=document.createElement("input");//text
+    //button.edit
+    var editButton=document.createElement("button");//edit button
 
-    //delete button
-    var deleteButton=document.createElement("button");
-    var deleteButtonImg=document.createElement("img");
+    //button.delete
+    var deleteButton=document.createElement("button");//delete button
+    var deleteButtonImg=document.createElement("img");//delete button image
 
     label.innerText=taskString;
-    label.className='todo__task';
+    label.className='task';
 
     //Each elements, needs appending
     checkBox.type="checkbox";
     editInput.type="text";
-    editInput.className="todo__task";
+    editInput.className="task";
 
     editButton.innerText="Edit"; //innerText encodes special characters, HTML does not.
-    editButton.className="todo__edit";
+    editButton.className="edit";
 
-    deleteButton.className="todo__delete";
+    deleteButton.className="delete";
     deleteButtonImg.src='./remove.svg';
     deleteButton.appendChild(deleteButtonImg);
+
 
     //and appending.
     listItem.appendChild(checkBox);
@@ -67,7 +68,9 @@ var addTask=function(){
     //Append listItem to incompleteTaskHolder
     incompleteTaskHolder.appendChild(listItem);
     bindTaskEvents(listItem, taskCompleted);
+
     taskInput.value="";
+
 }
 
 //Edit an existing task.
@@ -75,11 +78,14 @@ var addTask=function(){
 var editTask=function(){
     console.log("Edit Task...");
     console.log("Change 'edit' to 'save'");
+
+
     var listItem=this.parentNode;
+
     var editInput=listItem.querySelector('input[type=text]');
     var label=listItem.querySelector("label");
-    var editBtn=listItem.querySelector(".todo__edit");
-    var containsClass=listItem.classList.contains("todo__edit_task");
+    var editBtn=listItem.querySelector(".edit");
+    var containsClass=listItem.classList.contains("editMode");
     //If class of the parent is .editmode
     if(containsClass){
 
@@ -93,7 +99,7 @@ var editTask=function(){
     }
 
     //toggle .editmode on the parent.
-    listItem.classList.toggle("todo__edit_task");
+    listItem.classList.toggle("editMode");
 };
 
 
@@ -150,8 +156,8 @@ var bindTaskEvents=function(taskListItem,checkBoxEventHandler){
     console.log("bind list item events");
 //select ListItems children
     var checkBox=taskListItem.querySelector("input[type=checkbox]");
-    var editButton=taskListItem.querySelector("button.todo__edit");
-    var deleteButton=taskListItem.querySelector("button.todo__delete");
+    var editButton=taskListItem.querySelector("button.edit");
+    var deleteButton=taskListItem.querySelector("button.delete");
 
 
     //Bind editTask to edit button.
@@ -178,6 +184,8 @@ for (var i=0; i<completedTasksHolder.children.length;i++){
     //bind events to list items chldren(tasksIncompleted)
     bindTaskEvents(completedTasksHolder.children[i],taskIncomplete);
 }
+
+
 
 
 // Issues with usability don't get seen until they are in front of a human tester.
